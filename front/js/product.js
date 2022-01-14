@@ -3,7 +3,7 @@ var url = new URL(str);
 var idProduct = url.searchParams.get("id");
 console.log(idProduct);
 let article = "";
-const colorPicked = document. querySelector("#colors");
+const colorPicked = document.querySelector("#colors");
 const quantityPicked = document.querySelector("#quantity");
 getArticle();
 // Récupération des articles de l'API
@@ -15,8 +15,9 @@ function getArticle() {
     // Répartition des données de l'API dans le DOM
     .then(async function (resultatAPI) {
         article = await resultatAPI;
-        console.table(article);
+        
         if (article){
+            console.table(article);
             getPost(article);
         }
     })
@@ -55,12 +56,12 @@ function addToCart(article) {
     const btn_envoyerPanier = document.querySelector("#addToCart");
     //Ecouter le panier avec 2 conditions couleur non nulle et quantité entre 1 et 100
     btn_envoyerPanier.addEventListener("click", (event)=>{
+        event.preventDefault();
         if (quantityPicked.value > 0 && quantityPicked.value <=100 && quantityPicked.value != 0){
 
     //Recupération du choix de la couleur
-    let choixCouleur = quantityPicked.value;
     let choixCouleur = colorPicked.value;
-
+    console.log(choixCouleur);
     //Recupération du choix de la quantité
     let choixQuantite = quantityPicked.value;
     //Récupération des options de l'article à ajouter au panier
