@@ -268,7 +268,7 @@ function postForm(){
 
     //Ecouter le panier
     btn_commander.addEventListener("click", (event)=>{
-    
+        event.preventDefault();
         //Récupération des coordonnées du formulaire client
         let inputName = document.getElementById('firstName');
         let inputLastName = document.getElementById('lastName');
@@ -308,9 +308,10 @@ function postForm(){
         .then((data) => {
             console.log(data);
             localStorage.clear();
-            localStorage.setItem("orderId", data.orderId);
+            //localStorage.setItem("orderId", data.orderId);
+          //  window.location.href = 'confirmation.html?id=${request.orderId}';
 
-            document.location.href = "confirmation.html";
+            document.location.href = `confirmation.html?orderId=${data.orderId}`;
         })
         .catch((err) => {
             alert ("Problème avec fetch : " + err.message);

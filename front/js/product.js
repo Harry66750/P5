@@ -77,13 +77,13 @@ function addToCart(article) {
     };
     //Initialisation du local storage
     let produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
-    //fenêtre pop-up
+    /*//fenêtre pop-up
     const popupConfirmation =() =>{
         if(window.confirm(`Votre commande de ${choixQuantite} ${article.name} ${choixCouleur} est ajoutée au panier
 Pour consulter votre panier, cliquez sur OK`)){
             window.location.href ="cart.html";
         }
-    }
+    }*/
     //Importation dans le local storage
     //Si le panier comporte déjà au moins 1 article
     if (produitLocalStorage) {

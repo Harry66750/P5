@@ -1,8 +1,5 @@
-function main(){
-    const idNode = document.getElementById("orderId");
-    idNode.innerText = localStorage.getItem("orderId");
-    console.log(localStorage.getItem("orderId"))
-    localStorage.clear();
-}
+var str = window.location.href;
+var url = new URL(str);
+var numOrder = url.searchParams.get("orderId");
 
-main();
+document.getElementById('orderId').innerText=numOrder;
