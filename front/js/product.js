@@ -1,6 +1,10 @@
-var str = window.location.href;
-var url = new URL(str);
-var idProduct = url.searchParams.get("id");
+// Je vais chercher dans l'url l'id passé en paramaetre
+// Je récupère l'article du backend grâce à l'id
+
+
+var str = window.location.href;//product.html?id=415b7cacb65d43b2b5c1ff70f3393ad1
+var url = new URL(str);//product.html?id=415b7cacb65d43b2b5c1ff70f3393ad1 le transforme en url
+var idProduct = url.searchParams.get("id");// J'isole id = 415b7cacb65d43b2b5c1ff70f3393ad1
 console.log(idProduct);
 let article = "";
 const colorPicked = document.querySelector("#colors");
@@ -77,13 +81,8 @@ function addToCart(article) {
     };
     //Initialisation du local storage
     let produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
-    /*//fenêtre pop-up
-    const popupConfirmation =() =>{
-        if(window.confirm(`Votre commande de ${choixQuantite} ${article.name} ${choixCouleur} est ajoutée au panier
-Pour consulter votre panier, cliquez sur OK`)){
-            window.location.href ="cart.html";
-        }
-    }*/
+    // JSON.parse transforme un objet json en chaine de caractere parce que le localstorage n'accepte que des chaines de caractères
+    
     //Importation dans le local storage
     //Si le panier comporte déjà au moins 1 article
     if (produitLocalStorage) {

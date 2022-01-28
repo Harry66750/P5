@@ -1,3 +1,5 @@
+// 2 choses : Je récupère les données du back avec fetch en format json (javascript object)
+// Puis je les affiche en manipulant le dom, en créant des noeuds dans index.html
 
 fillSection();
 // Récupération des articles de l'API
